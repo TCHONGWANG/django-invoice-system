@@ -171,4 +171,37 @@
 </div>
 
 <br><br>
+<script>
+   $(document).ready(function () {
+      // Fonction pour filtrer les lignes du tableau en fonction de la recherche
+      $("#search").on("keyup", function () {
+         var value = $(this).val().toLowerCase(); // Récupère la valeur saisie et la convertit en minuscule
+         $("#myTable tr").filter(function () {
+            // Affiche ou masque les lignes en fonction de la correspondance
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+         });
+      });
+   });
+   
+   // modification
+
+   $(document).on('click', '#btn-invoice-mod', function(){
+      let invoice_id = $(this).data('id');
+      let customer = $(this).data('customer');
+      $('#id_modified').val(invoice_id);
+
+   })
+
+   // deleting of invoice
+
+   $(document).on('click', '#btn-invoice-sup', function(){
+      let invoice_id = $(this).data('id');
+      let customer = $(this).data('customer');
+      $('#id_supprimer').val(invoice_id);
+
+   })
+
+
+
+</script>
 {% endblock %}
